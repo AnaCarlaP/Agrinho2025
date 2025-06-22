@@ -1,0 +1,153 @@
+/* --- Configurações Globais e de Fontes --- */
+:root {
+    --cor-principal: #2E7D32; /* Verde escuro para títulos e destaques */
+    --cor-secundaria: #66BB6A; /* Verde mais claro para links e detalhes */
+    --cor-fundo: #f4f4f4;      /* Cinza bem claro para o fundo da página */
+    --cor-texto: #333;        /* Cinza escuro para o texto principal */
+    --fonte-titulo: 'Montserrat', sans-serif;
+    --fonte-corpo: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e border não alterem a largura final dos elementos */
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6; /* Melhora a legibilidade */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Estilos do Cabeçalho --- */
+header {
+    background-color: var(--cor-principal);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 5px solid var(--cor-secundaria);
+}
+
+header h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+header .subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* --- Estilos das Seções de Conteúdo --- */
+section {
+    background-color: #fff;
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+
+section h2 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-principal);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--cor-fundo);
+}
+
+section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+section ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+section ul li {
+    margin-bottom: 10px;
+}
+
+section ul li::marker {
+    color: var(--cor-secundaria);
+    font-weight: bold;
+}
+
+/* --- Estilos Específicos do Ciclo de Interdependência --- */
+.ciclo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo em telas menores */
+    gap: 15px; /* Espaço entre os itens do ciclo */
+}
+
+.ciclo-item {
+    background-color: var(--cor-fundo);
+    border-left: 5px solid var(--cor-secundaria);
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1; /* Faz com que os itens ocupem o espaço disponível igualmente */
+    min-width: 180px; /* Largura mínima para cada item */
+}
+
+.ciclo-item h3 {
+    color: var(--cor-principal);
+    margin-bottom: 10px;
+}
+
+.ciclo-seta {
+    font-size: 2rem;
+    color: var(--cor-secundaria);
+    font-weight: bold;
+}
+
+/* --- Estilos do Rodapé --- */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* --- Responsividade (Ajustes para Telas Menores, como Celulares) --- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .ciclo-container {
+        flex-direction: column; /* Itens do ciclo em coluna */
+    }
+
+    .ciclo-seta {
+        transform: rotate(90deg); /* Gira a seta para baixo */
+        margin: 10px 0;
+    }
+
+    /* Esconde a última seta no modo coluna */
+    .ciclo-item:last-of-type + .ciclo-seta {
+        display: none;
+    }
+}
